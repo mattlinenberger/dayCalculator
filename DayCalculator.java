@@ -1,8 +1,7 @@
 package whatDayIsIt;
 
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class DayCalculator {
@@ -14,8 +13,11 @@ public class DayCalculator {
 		Scanner in = new Scanner(System.in);
 		int numberOfDays = in.nextInt();
 		LocalDate yourDate = LocalDate.now().plusDays(numberOfDays);
-		System.out.println("Your date will be " + yourDate + ".  This added " + numberOfDays + " days.");
-
+//		System.out.println("Your date will be " + yourDate + ".  This added " + numberOfDays + " days.");
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE MMMM d");
+		String formattedString = yourDate.format(formatter);
+		System.out.println(formattedString);
 		//
 		// System.out.println(numberOfDays);
 		// Calendar cal = Calendar.getInstance();
